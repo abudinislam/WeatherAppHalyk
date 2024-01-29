@@ -27,6 +27,10 @@ class MainViewModel(private val repository: WeatherRepository) : ViewModel() {
                 .collect { query ->
                     fetchWeatherData(query)
                 }
+            val lastCachedData = repository.getLastCachedData()
+            lastCachedData?.let {
+                fetchWeatherData(it.cityName)
+            }
         }
     }
 

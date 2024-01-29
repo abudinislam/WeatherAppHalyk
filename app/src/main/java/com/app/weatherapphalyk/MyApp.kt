@@ -13,7 +13,6 @@ class MyApp : Application() {
 
     lateinit var database: AppDatabase
 
-
     override fun onCreate() {
         super.onCreate()
         weatherApi = createWeatherApi()
@@ -31,6 +30,5 @@ class MyApp : Application() {
 
         return retrofit.create(WeatherApi::class.java)
     }
-
 
 }

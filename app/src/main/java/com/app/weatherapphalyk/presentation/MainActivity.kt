@@ -17,8 +17,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val weatherApi = (application as MyApp).weatherApi
             val app = application as MyApp
+            val weatherApi = app.weatherApi
             val weatherDao = app.database.weatherDao()
             val repository = WeatherRepository(weatherApi, weatherDao)
             viewModel = MainViewModel(repository)

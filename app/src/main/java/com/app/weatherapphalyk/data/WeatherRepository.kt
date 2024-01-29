@@ -20,11 +20,19 @@ class WeatherRepository(private val weatherApi: WeatherApi, private val weatherD
             val response = weatherApi.getWeather(cityName, apiKey)
             val weatherEntity = response.toEntity()
 
-            weatherDao.insertWeatherData(CachedWeatherData(cityName, weatherEntity.temperature, currentTime))
+            weatherDao.insertWeatherData(
+                CachedWeatherData(
+                    cityName,
+                    weatherEntity.temperature,
+                    currentTime
+                )
+            )
             weatherEntity
         } catch (e: Exception) {
             null
         }
     }
+    suspend fun getLastCachedData(): CachedWeatherData? {
+        return weatherDao.getLastCachedData()
+    }
 }
-

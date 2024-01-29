@@ -13,4 +13,7 @@ interface WeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeatherData(weatherData: CachedWeatherData)
 
+    @Query("SELECT * FROM weather_data ORDER BY lastUpdateTime DESC LIMIT 1")
+    suspend fun getLastCachedData(): CachedWeatherData?
+
 }

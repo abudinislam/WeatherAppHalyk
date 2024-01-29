@@ -2,7 +2,6 @@ package com.app.weatherapphalyk.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +27,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.weatherapphalyk.data.WeatherRepository
 import com.app.weatherapphalyk.domain.WeatherEntity
 import com.app.weatherapphalyk.ui.theme.WeatherAppHalykTheme
 
@@ -40,7 +38,6 @@ fun WeatherScreen(viewModel: MainViewModel) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // Список погоды
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
@@ -84,7 +81,6 @@ fun WeatherScreen(viewModel: MainViewModel) {
         )
     }
 }
-
 
 @Composable
 fun CityWeatherItem(cityWeather: WeatherEntity) {
